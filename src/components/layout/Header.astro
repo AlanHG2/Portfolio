@@ -1,0 +1,52 @@
+---
+// src/components/layout/Header.astro
+const navLinks = [
+	{ href: "#hero", label: "Inicio" },
+	{ href: "#about", label: "Sobre Mi" },
+	{ href: "#projects", label: "Proyectos" },
+	{ href: "#contact", label: "Contacto" },
+];
+---
+
+<header>
+  <div>
+    <div>
+      <div>
+        <a href="/">
+          [ AG_DEV ]
+        </a>
+      </div>
+      <nav aria-label="Navegación principal">
+        {
+          navLinks.map((link) => (
+            <a href={link.href}>
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+      <div>
+        {/* Botón de menú móvil (placeholder) */}
+        <button
+          type="button"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
