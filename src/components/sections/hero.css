@@ -5,15 +5,15 @@
     flex-direction: column;
     justify-content: end;
     position: relative;
-    padding-bottom: 7.5dvh;
     user-select: none;
 }
 
 .hero-top{
     color: #000000;
-    padding: 1em;
+    padding: 0 1em;
     line-height: 2.6lh;
     color: #C0FE04;
+    margin-bottom: 1em;
     & h1 {
         font-family: "Oxanium Variable", "Oxanium", system-ui, sans-serif;
         font-size: 4rem;
@@ -106,48 +106,46 @@
     }
 }
 
-.hero-bottom{
-    text-align: center;
-    color: #dfff7e;
-    width: 100%;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 1rem;
-}
-.hero-social{
+.hero-bottom {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding:1.5em;
+    grid-template-columns: 7fr 1fr;
+    padding: 1em 1.5em;
     font-family: "Oxanium Variable", "Oxanium", system-ui, sans-serif;
     font-size: 1rem;
-    font-weight:400;
+    font-weight: 400;
     text-transform: uppercase;
     width: 100%;
-    height: 15dvh;
+    height: auto;
     background-color: #C0FE04;
     color: black;
-    position: absolute;
-    bottom: -7.5dvh;
+    position: relative;
     justify-content: space-between;
     align-items: flex-start;
     & .hero-subtitle {
-        margin: 0;
+        margin: auto 0;
         font-weight: 500;
-        font-size: 1.2rem;
+        font-size: 1em;
     }
-    & .social-container{
+    & .social-container {
         display: flex;
         flex-direction: row;
-        gap:1.5em;
-        align-items: center;
-        justify-content: flex-end; /* Alinear iconos a la derecha si es necesario */
+        gap: 1.25em;
+        margin: auto 0;
+        justify-content: flex-end;
     }
     & .hero-description {
-        grid-column: 1 / -1; /* Ocupa las dos columnas en la segunda fila */
-        margin-top: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #C0FE04;
+        padding: 0 1.5em 1em 1.5em;
+        box-sizing: border-box;
+        margin: 0;
+        font-weight: 300;
     }
-    & .social-icon{
-        & svg{
+    & .social-icon {
+        & svg {
             width: 25px;
             height: 25px;
         }
