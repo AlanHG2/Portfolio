@@ -6,6 +6,7 @@
     justify-content: end;
     position: relative;
     padding-bottom: 7.5dvh;
+    user-select: none;
 }
 
 .hero-top{
@@ -22,7 +23,6 @@
 }
 .glitch-wrap {
     position: relative;
-    cursor: pointer;
 }
 
 .glitch {
@@ -115,7 +115,8 @@
     font-size: 1rem;
 }
 .hero-social{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     padding:1.5em;
     font-family: "Oxanium Variable", "Oxanium", system-ui, sans-serif;
     font-size: 1rem;
@@ -129,14 +130,21 @@
     bottom: -7.5dvh;
     justify-content: space-between;
     align-items: flex-start;
-    & h2 {
+    & .hero-subtitle {
         margin: 0;
+        font-weight: 500;
+        font-size: 1.2rem;
     }
     & .social-container{
         display: flex;
         flex-direction: row;
         gap:1.5em;
         align-items: center;
+        justify-content: flex-end; /* Alinear iconos a la derecha si es necesario */
+    }
+    & .hero-description {
+        grid-column: 1 / -1; /* Ocupa las dos columnas en la segunda fila */
+        margin-top: 1rem;
     }
     & .social-icon{
         & svg{

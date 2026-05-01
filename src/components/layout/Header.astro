@@ -1,52 +1,128 @@
 ---
 // src/components/layout/Header.astro
+import "./header.css";
+
 const navLinks = [
 	{ href: "#hero", label: "Inicio" },
 	{ href: "#about", label: "Sobre Mi" },
 	{ href: "#projects", label: "Proyectos" },
-	{ href: "#contact", label: "Contacto" },
 ];
 ---
 
-<header>
-  <div>
-    <div>
-      <div>
-        <a href="/">
-          [ AG_DEV ]
+<input
+  type="checkbox"
+  id="mobile-menu-toggle"
+  class="mobile-menu-toggle"
+  aria-label="Abrir menú"
+/>
+
+<header class="site-header" id="site-header">
+  <div class="header-container">
+    <div class="header-left">
+      <div class="logo-container">
+        <a href="/" class="logo-link">
+          <img src="/public/h.svg" alt="Logo" width={64} height={64} />
         </a>
       </div>
-      <nav aria-label="Navegación principal">
-        {
-          navLinks.map((link) => (
-            <a href={link.href}>
-              {link.label}
-            </a>
-          ))
-        }
+
+      <!-- Navegación de Escritorio -->
+      <nav class="desktop-nav" aria-label="Navegación principal de escritorio">
+        <ul class="nav-list desktop-nav-list">
+          {
+            navLinks.map((link) => (
+              <li class="nav-item">
+                <a href={link.href} class="nav-link">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </nav>
-      <div>
-        {/* Botón de menú móvil (placeholder) */}
-        <button
-          type="button"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          aria-label="Abrir menú"
-        >
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-          </svg>
-        </button>
+    </div>
+
+    <div class="header-right">
+      <div class="contact-container">
+        <a href="#contact" class="contact-link">Contactar</a>
       </div>
+
+      <!-- Botón de menú móvil -->
+      <label for="mobile-menu-toggle" class="mobile-menu-btn">
+        <svg
+          class="icon-menu"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+        <svg
+          class="icon-close"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </label>
     </div>
   </div>
 </header>
+
+<!-- Navegación Móvil (Fuera del header para evitar el bug del backdrop-filter padre) -->
+<nav
+  class="mobile-nav"
+  id="mobile-menu"
+  aria-label="Navegación principal móvil"
+>
+  <ul class="nav-list">
+    {
+      navLinks.map((link) => (
+        <li class="nav-item">
+          <a href={link.href} class="nav-link mobile-nav-link">
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const initMobileMenu = () => {
+    const toggle = document.getElementById(
+      "mobile-menu-toggle",
+    ) as HTMLInputElement | null;
+    const nav = document.getElementById("mobile-menu");
+    const links = document.querySelectorAll(".mobile-nav-link");
+
+    if (!toggle || !nav) return;
+
+    // Cerrar al hacer clic en un enlace
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        toggle.checked = false;
+      });
+    });
+
+    // Cerrar al hacer clic en la parte negra (cualquier elemento que no sea un enlace)
+    nav.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).tagName !== "A") {
+        toggle.checked = false;
+      }
+    });
+  };
+
+  initMobileMenu();
+  document.addEventListener("astro:page-load", initMobileMenu);
+</script>
