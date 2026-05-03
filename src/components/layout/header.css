@@ -30,31 +30,34 @@
 
 .header-left {
   gap: 1.5rem;
+  height: 100%;
 }
 
 .header-right {
+  height: 100%;
   & .contact-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #C0FE04;
+    height: 100%;
+    background-color: var(--color-primary);
     color: #000000;
     & .contact-link{
-      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0 2rem;
       font-size: 1rem;
       font-family: 'Oxanium', monospace;
       font-weight: 500;
       text-transform: uppercase;
     }
   }
-;
 }
 
 /* Logo Space */
 .logo-container {
   position: relative;
   z-index: 101;
-  background-color: #C0FE04;
+  background-color: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +92,8 @@
   border: none;
   color: #ffffff;
   cursor: pointer;
-  padding: 1rem;
+  height: 100%;
+  padding: 0 1rem;
   position: relative;
   z-index: 101; /* Above mobile menu to remain clickable */
   display: flex;

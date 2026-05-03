@@ -1,13 +1,13 @@
 ---
 import "../styles/global.css";
-import HeroSection from "@/components/sections/HeroSection.astro";
+import "@fontsource-variable/oxanium";
+import "@fontsource-variable/figtree";
+import HeroSection from "@/components/landing/HeroSection.astro";
+import ProjectsSection from "@/components/landing/ProjectsSection.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
-// Component Imports
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
 ---
 
 <MainLayout title="Inicio">
   <HeroSection />
+  <ProjectsSection />
 </MainLayout>

@@ -3,26 +3,34 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: end;
     position: relative;
     user-select: none;
+    row-gap: 0.75rem;
+    padding-top: 6rem;
 }
 
 .hero-top{
-    color: #000000;
-    padding: 0 1em;
-    line-height: 2.6lh;
-    color: #C0FE04;
-    margin-bottom: 1em;
+    margin-top: auto;
+    color: var(--color-background);
+    padding: 0 5dvw;
+    color: var(--color-primary);
+    @apply transition-all duration-500 ease-in-out;
     & h1 {
-        font-family: "Oxanium Variable", "Oxanium", system-ui, sans-serif;
-        font-size: 4rem;
-        font-weight: 900;
-        text-transform: uppercase;
+        @apply font-oxanium font-extrabold uppercase;
+        font-size: clamp(1.5rem, 20vw, 8rem);
+        line-height: 1;
+        overflow-wrap: break-word;
+    }
+    & h2{
+        @apply text-foreground text-sm font-oxanium;
+        text-wrap: balance;
     }
 }
 .glitch-wrap {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.3em;
 }
 
 .glitch {
@@ -52,6 +60,43 @@
     clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
 }
+
+
+.hero-bottom {
+    @apply grid grid-cols-1 md:grid-cols-[5fr_1fr] text-sm font-sans items-center;
+    row-gap: 1.1rem;
+    padding: 0 5dvw;
+    padding-bottom: 4dvh;
+    font-weight: 400;
+    width: 100%;
+    height: auto;
+    color: var(--color-foreground);
+    & ul.hero-badges {
+        @apply flex flex-row flex-wrap items-start gap-3;
+        font-size: clamp(0.7rem, 4vw, 1rem);
+        & li {
+            @apply border border-primary/30 py-1 px-1 rounded-2xl;
+            word-break: break-word;
+        }
+    }
+    & .social-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.25em;
+        margin: auto 0;
+        @apply md:justify-end;
+    }
+    & .social-icon {
+        & svg {
+            width: 25px;
+            height: 25px;
+            stroke:currentColor;
+            fill: currentColor;
+        }
+    }
+}
+
 
 @keyframes glitch {
     0%, 100% {
@@ -103,51 +148,5 @@
     60% {
         transform: translate(3px, -1px) skew(2deg);
         visibility: visible;
-    }
-}
-
-.hero-bottom {
-    display: grid;
-    grid-template-columns: 7fr 1fr;
-    padding: 1em 1.5em;
-    font-family: "Oxanium Variable", "Oxanium", system-ui, sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    width: 100%;
-    height: auto;
-    background-color: #C0FE04;
-    color: black;
-    position: relative;
-    justify-content: space-between;
-    align-items: flex-start;
-    & .hero-subtitle {
-        margin: auto 0;
-        font-weight: 500;
-        font-size: 1em;
-    }
-    & .social-container {
-        display: flex;
-        flex-direction: row;
-        gap: 1.25em;
-        margin: auto 0;
-        justify-content: flex-end;
-    }
-    & .hero-description {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #C0FE04;
-        padding: 0 1.5em 1em 1.5em;
-        box-sizing: border-box;
-        margin: 0;
-        font-weight: 300;
-    }
-    & .social-icon {
-        & svg {
-            width: 25px;
-            height: 25px;
-        }
     }
 }

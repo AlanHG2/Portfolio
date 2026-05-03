@@ -1,24 +1,26 @@
 ---
-import "@fontsource-variable/oxanium";
-import "./hero.css";
-import { FileUser } from "lucide-react";
+import { Dot, FileUser } from "lucide-react";
 import HeroShader from "../ui/HeroShader";
 ---
 
 <section id="hero">
   <div class="hero-content">
     <div class="hero-top">
+      <h2>Licenciado en Ciencias Computacionales</h2>
       <h1 class="glitch-wrap">
         <span class="glitch" data-text="Alan">Alan</span>
         <span class="glitch" data-text="Garcia">Garcia</span>
       </h1>
     </div>
-    <HeroShader client:only="react" />
 
     <section class="hero-bottom">
-      <h2 class="hero-subtitle">
-        Licenciado en <span>Ciencias Computacionales</span>
-      </h2>
+      <ul class="hero-badges">
+        <li class="flex items-center">
+          <Dot className="w-5 h-5 text-green-400" />Disponible
+        </li>
+        <li>Hidalgo, México</li>
+        <li>Español | Inglés</li>
+      </ul>
       <ul class="social-container">
         <li>
           <a href="#" class="social-icon" aria-label="GitHub"
@@ -56,9 +58,6 @@ import HeroShader from "../ui/HeroShader";
           <a href="#" class="social-icon" aria-label="CV"><FileUser /></a>
         </li>
       </ul>
-      <h3 class="hero-description">
-        Desarrollo Web, Sistemas de Información y Automatización de Procesos
-      </h3>
     </section>
   </div>
 </section>
