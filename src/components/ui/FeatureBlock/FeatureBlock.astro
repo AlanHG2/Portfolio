@@ -17,9 +17,9 @@ const { caption, title, badges, stats, image } = Astro.props;
   <div class="content-col">
     <div class="main-section">
       <p class="caption">{caption}</p>
-      <h2 class="title">
+      <h3 class="title">
         {title}
-      </h2>
+      </h3>
 
       <div class="badges-row">
         {badges.map((badge) => <span class="badge">{badge}</span>)}

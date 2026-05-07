@@ -2,7 +2,9 @@
 import "../styles/global.css";
 import "@fontsource-variable/oxanium";
 import "@fontsource-variable/figtree";
-import HeroSection from "@/components/landing/HeroSection.astro";
+import AboutSection from "@/components/landing/About/About.astro";
+import ContactSection from "@/components/landing/Contact/Contact.astro";
+import HeroSection from "@/components/landing/Hero/HeroSection.astro";
 import ProjectsSection from "@/components/landing/ProjectsSection.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 ---
@@ -10,4 +12,6 @@ import MainLayout from "@/layouts/MainLayout.astro";
 <MainLayout title="Inicio">
   <HeroSection />
   <ProjectsSection />
+  <AboutSection />
+  <ContactSection />
 </MainLayout>

@@ -1,0 +1,57 @@
+---
+const skills = [
+	"Desarrollo Web",
+	"Diseño de Sistemas",
+	"UI/UX",
+	"Automatización de Procesos",
+	"Minería de Datos",
+	"Prototipado",
+	"Liderazgo Técnico",
+	"Resolución de Problemas",
+	"Comunicación Efectiva",
+];
+
+const technologies = [
+	"JavaScript / TypeScript",
+	"Java",
+	"Python",
+	"SQL",
+	"NoSQL",
+	"ORM",
+	"Spring Boot",
+	"React",
+	"Next.js",
+	"Astro",
+	"Tailwind CSS",
+	"Git & GitHub",
+	"Docker",
+	"Google Cloud",
+];
+
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+---
+
+<section id="about" class="about-section">
+  <SectionTitle title="Sobre Mí" />
+  <div class="about-container">
+    <div class="about-content">
+      <p class="about-text">
+        Desarrollador de software orgullosamente mexicano. Licenciado en
+        Ciencias Computacionales por parte de la Universidad Autonoma del Estado
+        de Hidalgo, especializado en crear experiencias digitales rápidas,
+        accesibles y estéticamente excepcionales.
+      </p>
+    </div>
+    <div class="about-skills">
+      <h3 class="section-title">HABILIDADES</h3>
+      <ul class="skills-list">
+        {skills.map((skill) => <li class="skill-badge">{skill}</li>)}
+      </ul>
+
+      <h3 class="section-title">TECNOLOGÍAS</h3>
+      <ul class="skills-list">
+        {technologies.map((tech) => <li class="skill-badge">{tech}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

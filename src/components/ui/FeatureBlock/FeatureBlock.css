@@ -31,7 +31,6 @@
         font-size: clamp(2.25rem, 4vw, 3rem);
         line-height: clamp(2lh, 2lh, 2.5lh);
         text-transform: capitalize;
-        font-family: "Oxanium Variable";
     }
 
     .badges-row {
@@ -39,7 +38,7 @@
     }
     
     .badge {
-        @apply inline-flex items-center justify-center rounded-full border border-border/50 px-3 py-1 font-medium uppercase tracking-widest text-muted-foreground bg-transparent;
+        @apply inline-flex items-center justify-center rounded-full border border-border px-3 py-1 font-medium uppercase tracking-widest text-muted-foreground bg-transparent;
         font-size: clamp(0.6rem, 1.5vw, 0.65rem);
     }
     

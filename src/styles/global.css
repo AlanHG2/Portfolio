@@ -26,7 +26,6 @@
     --color-ring: var(--ring);
     --color-input: var(--input);
     --color-border: var(--border);
-    --color-destructive: var(--destructive);
     --color-accent-foreground: var(--accent-foreground);
     --color-accent: var(--accent);
     --color-muted-foreground: var(--muted-foreground);
@@ -64,7 +63,6 @@
     --muted-foreground: oklch(0.723 0.014 214.4);
     --accent: oklch(0.275 0.011 216.9);
     --accent-foreground: oklch(0.987 0.002 197.1);
-    --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.56 0.021 213.5);
@@ -133,7 +131,6 @@
     --muted-foreground: oklch(0.723 0.014 214.4);
     --accent: oklch(0.275 0.011 216.9);
     --accent-foreground: oklch(0.987 0.002 197.1);
-    --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.56 0.021 213.5);
@@ -169,7 +166,9 @@
 
 @layer components{
   @import '../components/ui/FeatureBlock/FeatureBlock.css';
-  @import '../components/landing/hero.css';
+  @import '../components/landing/Hero/hero.css';
   @import '../components/layout/header.css';
+  @import '../components/landing/About/about.css';
+  @import '../components/landing/Contact/contact.css';
 }
 /* #67EF9C #050505 */
