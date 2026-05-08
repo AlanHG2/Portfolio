@@ -10,13 +10,13 @@
   transition: all 0.3s ease;
 
   .header-container {
+    view-transition-name: site-header;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0;
     margin: 0 auto;
     height: 3.75rem;
-    overflow: hidden;
     background: rgba(0, 0, 0, 0.02);
     backdrop-filter: blur(20px);
   }

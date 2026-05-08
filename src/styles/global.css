@@ -150,6 +150,11 @@
     animation: none;
     mix-blend-mode: normal;
   }
+
+  ::view-transition-group(site-header) {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
 }
 
 @layer components{
