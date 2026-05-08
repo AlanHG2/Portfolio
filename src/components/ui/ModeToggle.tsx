@@ -1,20 +1,11 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
 export function ModeToggle() {
-	const [theme, setThemeState] = useState<"light" | "dark">("dark");
-
-	useEffect(() => {
-		// La clase .light contiene los estilos del tema claro
-		const isLightMode = document.documentElement.classList.contains("light");
-		setThemeState(isLightMode ? "light" : "dark");
-	}, []);
-
 	const toggleTheme = async () => {
-		const newTheme = theme === "dark" ? "light" : "dark";
-		setThemeState(newTheme);
+		const isLightMode = document.documentElement.classList.contains("light");
+		const newTheme = isLightMode ? "dark" : "light";
 
 		if (!("startViewTransition" in document)) {
 			document.documentElement.classList[
@@ -42,7 +33,12 @@ export function ModeToggle() {
 	};
 
 	return (
-		<Button variant="outline" size="icon" onClick={toggleTheme}>
+		<Button
+			variant="ghost"
+			size="icon"
+			onClick={toggleTheme}
+			className={"mode-toggle"}
+		>
 			<Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all light:scale-0 light:-rotate-90" />
 			<Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all light:scale-100 light:rotate-0" />
 			<span className="sr-only">Toggle theme</span>

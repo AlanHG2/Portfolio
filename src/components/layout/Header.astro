@@ -4,7 +4,6 @@ import { ModeToggle } from "@/components/ui/ModeToggle";
 const navLinks = [
 	{ href: "#projects", label: "Proyectos" },
 	{ href: "#about", label: "Sobre Mi" },
-	{ href: "#contact", label: "Contacto" },
 ];
 ---
 
@@ -89,12 +88,17 @@ const navLinks = [
               </li>
             ))
           }
+          <li class="nav-item">
+            <ModeToggle client:load />
+          </li>
         </ul>
       </nav>
     </div>
 
     <div class="header-right">
-      <div class="contact-container"><ModeToggle client:only="react" /></div>
+      <div class="contact-container">
+        <a href="#contact" class="contact-link">Contactar</a>
+      </div>
 
       <!-- Botón de menú móvil -->
       <label for="mobile-menu-toggle" class="mobile-menu-btn">
@@ -145,6 +149,9 @@ const navLinks = [
         </li>
       ))
     }
+    <li class="nav-item">
+      <ModeToggle client:load />
+    </li>
   </ul>
 </nav>
 
