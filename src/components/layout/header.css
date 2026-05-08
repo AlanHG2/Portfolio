@@ -36,7 +36,7 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      @apply rounded-sm;
+      border-bottom-right-radius: var(--radius-sm);
 
       .logo-link {
         text-decoration: none;
@@ -52,7 +52,7 @@
           height: 1.75rem;
           aspect-ratio: 1/1;
           object-fit: contain;
-          fill: var(--color-primary-foreground);
+          fill: var(--color-background);
         }
       }
     }
@@ -91,7 +91,7 @@
         transition: all 0.3s ease;
         background-color: var(--color-primary);
         color: var(--color-background);
-        @apply rounded-sm;
+        border-bottom-left-radius: var(--radius-sm);
 
         &:hover {
           background-color: var(--color-background);
