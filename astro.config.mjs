@@ -9,9 +9,9 @@ import react from '@astrojs/react';
 export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
-		server: {
-			allowedHosts: ["alanhg2.link"],
-		},
+		// server: {
+		// 	allowedHosts: ["alanhg2.link"],
+		// },
 	},
 
 	integrations: [react()],

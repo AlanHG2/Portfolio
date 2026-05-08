@@ -1,13 +1,9 @@
-/* src/components/layout/header.css */
-
-/* --- Mobile First --- */
-
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 101; /* Higher than mobile-nav (100) so button is clickable */
+  z-index: 101;
   transition: all 0.3s ease;
 }
 
@@ -19,7 +15,7 @@
   margin: 0 auto;
   height:3.75rem;
   overflow: hidden;
-  background:rgba(0,0,0,0.1);
+  background:rgba(0,0,0,0.02);
   backdrop-filter: blur(20px);
 }
 
@@ -67,30 +63,31 @@
 .logo-link {
   text-decoration: none;
   height: 100%;
-  color: #000000;
   font-weight: bold;
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  & img{
+  & svg{
     width: 1.75rem;
+    height: 1.75rem;
     aspect-ratio: 1/1;
     object-fit: contain;
+    fill: var(--color-primary-foreground);
   }
 }
 
-/* Desktop Nav (Hidden on Mobile) */
 .desktop-nav {
   display: none;
-  padding: 1rem;
+  margin: auto 0;
+  height: 100%;
 }
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: var(--color-primary-foreground);
   cursor: pointer;
   height: 100%;
   padding: 0 1rem;
@@ -112,12 +109,10 @@
   position: absolute;
 }
 
-/* Hide the native checkbox */
 .mobile-menu-toggle {
   display: none;
 }
 
-/* Toggle icon states based on checkbox (checkbox is now root sibling) */
 .mobile-menu-toggle:checked ~ .site-header .mobile-menu-btn .icon-menu {
   opacity: 0;
   transform: rotate(90deg) scale(0.5);
@@ -141,7 +136,7 @@ body:has(.mobile-menu-toggle:checked) {
   left: 0;
   width: 100%;
   height: 100dvh;
-  background-color: rgba(0, 0, 0, 0.649);
+  background-color: rgb(var(--color-background) / 0.5);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   display: flex;
@@ -168,24 +163,37 @@ body:has(.mobile-menu-toggle:checked) {
   flex-direction: column;
   gap: 2rem;
   text-align: center;
-  font-family: "Oxanium Variable", "Oxanium", system-ui, sans-serif;
-  font-size: 2rem;
+  font-family: "Oxanium Variable", system-ui, sans-serif;
 }
 
 .desktop-nav-list {
   flex-direction: row;
+  height: 100%;
+  align-items: center;
+  & .nav-item{
+    height: 100%;
+    & a{
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
 }
 
 .nav-link {
-  color: #fff;
+  color: var(--color-primary-foreground);
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   text-transform: uppercase;
+
+  &.mobile-nav-link{
+    font-size: 1.8rem;
+  }
 }
 
 .desktop-nav .nav-link {
@@ -194,9 +202,8 @@ body:has(.mobile-menu-toggle:checked) {
   transform: none;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #a3a3a3;
+.nav-link:hover {
+  color: var(--color-primary);
 }
 
 /* Staggered animation for links when opening */
