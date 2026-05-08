@@ -1,5 +1,5 @@
 ---
-import { ArrowUpRight } from "lucide-react";
+import { ContactModal } from "./ContactModal";
 ---
 
 <section id="contact" class="contact-section">
@@ -7,10 +7,7 @@ import { ArrowUpRight } from "lucide-react";
     <h2 class="contact-heading">
       Construyamos algo <span class="word-grandioso">grandioso!</span>
       <br />
-      <a href="#contact-modal" class="contact-cta">
-        <span class="word-hablemos">Hablemos</span>
-        <ArrowUpRight className="pointer-icon" />
-      </a>
+      <ContactModal client:load />
     </h2>
   </div>
 </section>
