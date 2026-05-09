@@ -34,7 +34,7 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
 <section id="about" class="about-section">
   <SectionTitle title="Sobre Mí" />
   <div class="about-container">
-    <div class="about-content">
+    <div class="about-content reveal-left">
       <p class="about-text">
         Desarrollador de software orgullosamente mexicano. Licenciado en
         Ciencias Computacionales por parte del Instituto de Ciencias Básicas e
@@ -43,15 +43,33 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
         estéticamente excepcionales.
       </p>
     </div>
-    <div class="about-skills">
+    <div class="about-skills reveal-right">
       <h3 class="section-title">HABILIDADES</h3>
       <ul class="skills-list">
-        {skills.map((skill) => <li class="skill-badge">{skill}</li>)}
+        {
+          skills.map((skill, i) => (
+            <li
+              class="skill-badge reveal-stagger"
+              style={`--stagger-delay: ${i * 50}ms`}
+            >
+              {skill}
+            </li>
+          ))
+        }
       </ul>
 
       <h3 class="section-title">TECNOLOGÍAS</h3>
       <ul class="skills-list">
-        {technologies.map((tech) => <li class="skill-badge">{tech}</li>)}
+        {
+          technologies.map((tech, i) => (
+            <li
+              class="skill-badge reveal-stagger"
+              style={`--stagger-delay: ${i * 40}ms`}
+            >
+              {tech}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>

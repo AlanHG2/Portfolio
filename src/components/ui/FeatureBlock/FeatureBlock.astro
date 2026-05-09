@@ -8,12 +8,13 @@ interface Props {
 	badges: string[];
 	stats: { value: string; label: string }[];
 	image: ImageMetadata;
+	revealClass?: string;
 }
 
-const { caption, title, badges, stats, image } = Astro.props;
+const { caption, title, badges, stats, image, revealClass = "" } = Astro.props;
 ---
 
-<article class="feature-block">
+<article class={`feature-block ${revealClass}`}>
   <div class="content-col">
     <div class="main-section">
       <p class="caption">{caption}</p>
@@ -50,3 +51,4 @@ const { caption, title, badges, stats, image } = Astro.props;
     />
   </div>
 </article>
+
