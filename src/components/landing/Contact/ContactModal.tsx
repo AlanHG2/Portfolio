@@ -1,5 +1,7 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -11,13 +13,28 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { Field, FieldGroup } from "@/components/ui/field";
+import {
+	Field,
+	FieldError,
+	FieldGroup,
+	FieldLabel,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { type ContactFormValues, contactFormSchema } from "./schema";
 
 export function ContactModal() {
 	const [open, setOpen] = useState(false);
+
+	const form = useForm<ContactFormValues>({
+		resolver: zodResolver(contactFormSchema),
+		defaultValues: {
+			nombre: "",
+			email: "",
+			telefono: "",
+			mensaje: "",
+		},
+	});
 
 	useEffect(() => {
 		const handleOpenModal = () => setOpen(true);
@@ -26,6 +43,11 @@ export function ContactModal() {
 			document.removeEventListener("open-contact-modal", handleOpenModal);
 		};
 	}, []);
+
+	function onSubmit(data: ContactFormValues) {
+		// Do something with the form values.
+		console.log(data);
+	}
 
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
@@ -39,7 +61,7 @@ export function ContactModal() {
 				</button>
 			</DialogTrigger>
 			<DialogContent className="w-[95vw] sm:max-w-lg max-h-[90dvh] overflow-y-auto">
-				<form>
+				<form onSubmit={form.handleSubmit(onSubmit)}>
 					<DialogHeader>
 						<DialogTitle className="text-2xl sm:text-3xl">Contacto</DialogTitle>
 						<DialogDescription className="text-base sm:text-lg">
@@ -47,56 +69,96 @@ export function ContactModal() {
 						</DialogDescription>
 					</DialogHeader>
 					<FieldGroup className="py-4 sm:py-6">
-						<Field>
-							<Label htmlFor="nombre" className="text-base">
-								Nombre
-							</Label>
-							<Input
-								id="nombre"
-								name="nombre"
-								placeholder="Tu nombre"
-								required
-								className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
-							/>
-						</Field>
-						<Field>
-							<Label htmlFor="email" className="text-base">
-								Email
-							</Label>
-							<Input
-								id="email"
-								name="email"
-								type="email"
-								placeholder="tu@email.com"
-								required
-								className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
-							/>
-						</Field>
-						<Field>
-							<Label htmlFor="telefono" className="text-base">
-								Teléfono
-							</Label>
-							<Input
-								id="telefono"
-								name="telefono"
-								type="tel"
-								placeholder="10 dígitos"
-								className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
-							/>
-						</Field>
-						<Field>
-							<Label htmlFor="mensaje" className="text-base">
-								Mensaje
-							</Label>
-							<Textarea
-								id="mensaje"
-								name="mensaje"
-								placeholder="¿En qué te puedo ayudar?"
-								maxLength={150}
-								required
-								className="text-base min-h-24 sm:min-h-32 mt-1 sm:mt-2 resize-none"
-							/>
-						</Field>
+						<Controller
+							name="nombre"
+							control={form.control}
+							render={({ field, fieldState }) => (
+								<Field data-invalid={fieldState.invalid}>
+									<FieldLabel htmlFor={field.name} className="text-base">
+										Nombre
+									</FieldLabel>
+									<Input
+										{...field}
+										id={field.name}
+										aria-invalid={fieldState.invalid}
+										placeholder="Tu nombre"
+										autoComplete="name"
+										className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
+									/>
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
+								</Field>
+							)}
+						/>
+						<Controller
+							name="email"
+							control={form.control}
+							render={({ field, fieldState }) => (
+								<Field data-invalid={fieldState.invalid}>
+									<FieldLabel htmlFor={field.name} className="text-base">
+										Email
+									</FieldLabel>
+									<Input
+										{...field}
+										id={field.name}
+										type="email"
+										aria-invalid={fieldState.invalid}
+										placeholder="tu@email.com"
+										autoComplete="email"
+										className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
+									/>
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
+								</Field>
+							)}
+						/>
+						<Controller
+							name="telefono"
+							control={form.control}
+							render={({ field, fieldState }) => (
+								<Field data-invalid={fieldState.invalid}>
+									<FieldLabel htmlFor={field.name} className="text-base">
+										Teléfono
+									</FieldLabel>
+									<Input
+										{...field}
+										id={field.name}
+										type="tel"
+										aria-invalid={fieldState.invalid}
+										placeholder="10 dígitos"
+										autoComplete="tel"
+										className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
+									/>
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
+								</Field>
+							)}
+						/>
+						<Controller
+							name="mensaje"
+							control={form.control}
+							render={({ field, fieldState }) => (
+								<Field data-invalid={fieldState.invalid}>
+									<FieldLabel htmlFor={field.name} className="text-base">
+										Mensaje
+									</FieldLabel>
+									<Textarea
+										{...field}
+										id={field.name}
+										aria-invalid={fieldState.invalid}
+										placeholder="¿En qué puedo ayudar?"
+										maxLength={150}
+										className="text-base min-h-24 sm:min-h-32 mt-1 sm:mt-2 resize-none"
+									/>
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
+								</Field>
+							)}
+						/>
 					</FieldGroup>
 					<DialogFooter>
 						<DialogClose
