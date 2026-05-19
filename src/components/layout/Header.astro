@@ -49,7 +49,12 @@ const navLinks = [
 
     <div class="header-right">
       <div class="contact-container">
-        <a href="#contact" class="contact-link">Contactar</a>
+        <button
+          id="header-contact-btn"
+          type="button"
+          class="contact-link"
+          aria-haspopup="dialog"
+        >Contactar</button>
       </div>
 
       <!-- Botón de menú móvil -->
@@ -134,4 +139,14 @@ const navLinks = [
 
   initMobileMenu();
   document.addEventListener("astro:page-load", initMobileMenu);
+
+  const initContactBtn = () => {
+    const btn = document.getElementById("header-contact-btn");
+    btn?.addEventListener("click", () => {
+      document.dispatchEvent(new CustomEvent("open-contact-modal"));
+    });
+  };
+
+  initContactBtn();
+  document.addEventListener("astro:page-load", initContactBtn);
 </script>

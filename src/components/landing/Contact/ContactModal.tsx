@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
@@ -16,8 +17,18 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export function ContactModal() {
+	const [open, setOpen] = useState(false);
+
+	useEffect(() => {
+		const handleOpenModal = () => setOpen(true);
+		document.addEventListener("open-contact-modal", handleOpenModal);
+		return () => {
+			document.removeEventListener("open-contact-modal", handleOpenModal);
+		};
+	}, []);
+
 	return (
-		<Dialog>
+		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger>
 				<button
 					type="button"
@@ -69,7 +80,7 @@ export function ContactModal() {
 								id="telefono"
 								name="telefono"
 								type="tel"
-								placeholder="+123456789"
+								placeholder="10 dígitos"
 								className="text-base h-10 sm:h-12 mt-1 sm:mt-2"
 							/>
 						</Field>
@@ -88,18 +99,20 @@ export function ContactModal() {
 						</Field>
 					</FieldGroup>
 					<DialogFooter>
-						<DialogClose>
-							<Button
-								type="button"
-								variant="outline"
-								className="text-base h-10 sm:h-12 px-4 sm:px-6"
-							>
-								Cancelar
-							</Button>
-						</DialogClose>
+						<DialogClose
+							render={
+								<Button
+									type="button"
+									variant="outline"
+									className="text-base h-10 sm:h-12 px-4 sm:px-6"
+								>
+									Cancelar
+								</Button>
+							}
+						/>
 						<Button
 							type="submit"
-							className="text-base h-10 sm:h-12 px-4 sm:px-6"
+							className="text-base h-10 sm:h-12 px-4 sm:px-8 text-secondary"
 						>
 							Enviar
 						</Button>
