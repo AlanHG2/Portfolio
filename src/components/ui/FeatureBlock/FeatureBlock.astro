@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+	caption: string;
+	title: string;
+	badges: string[];
+	stats: { value: string; label: string }[];
+	image: ImageMetadata;
+	revealClass?: string;
+}
+
+const { caption, title, badges, stats, image, revealClass = "" } = Astro.props;
+---
+
+<article class={`feature-block ${revealClass}`}>
+  <div class="content-col">
+    <div class="main-section">
+      <p class="caption">{caption}</p>
+      <h3 class="title">
+        {title}
+      </h3>
+
+      <div class="badges-row">
+        {badges.map((badge) => <span class="badge">{badge}</span>)}
+      </div>
+    </div>
+
+    <div class="stats-row">
+      {
+        stats.map((stat) => (
+          <div class="stat-item">
+            <span class="stat-value">{stat.value}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="image-container">
+    <Image
+      alt={title}
+      class="image"
+      src={image}
+      format="webp"
+      quality={60}
+      width={1280}
+      height={720}
+    />
+  </div>
+</article>
+

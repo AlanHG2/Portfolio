@@ -1,0 +1,152 @@
+.hero-content{
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    user-select: none;
+    row-gap: 0.75rem;
+    padding-top: 6rem;
+}
+
+.hero-top{
+    margin-top: auto;
+    color: var(--color-background);
+    padding: 0 5dvw;
+    color: var(--color-primary);
+    @apply transition-all duration-500 ease-in-out;
+    & h1 {
+        @apply font-oxanium font-extrabold uppercase;
+        font-size: clamp(1.5rem, 20vw, 8rem);
+        line-height: 1;
+        overflow-wrap: break-word;
+    }
+    & h2{
+        @apply text-foreground text-sm font-oxanium;
+        text-wrap: balance;
+    }
+}
+.glitch-wrap {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.3em;
+}
+
+.glitch {
+    display: inline-block;
+    position: relative;
+    animation: glitch 0.6s linear 0.2s;
+}
+
+
+.glitch:before,
+.glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    z-index: -1;
+    visibility: hidden;
+}
+
+.glitch:before {
+    animation: glitchTop 0.6s linear 0.2s;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+.glitch:after {
+    animation: glitchBotom 0.6s linear 0.2s;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+
+.hero-bottom {
+    @apply grid grid-cols-1 md:grid-cols-[5fr_1fr] text-sm font-sans items-center;
+    row-gap: 1.1rem;
+    padding: 0 5dvw;
+    padding-bottom: 4dvh;
+    font-weight: 400;
+    width: 100%;
+    height: auto;
+    color: var(--color-foreground);
+    & ul.hero-badges {
+        @apply flex flex-row flex-wrap items-start gap-3;
+        font-size: clamp(0.7rem, 4vw, 1rem);
+        & li {
+            @apply border border-primary/30 py-1 px-1 rounded-2xl;
+            word-break: break-word;
+        }
+    }
+    & .social-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.25em;
+        margin: auto 0;
+        @apply md:justify-end;
+    }
+    & .social-icon {
+        & svg {
+            width: 25px;
+            height: 25px;
+            stroke:currentColor;
+            fill: currentColor;
+        }
+    }
+}
+
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0) skew(0);
+    }
+    20% {
+        transform: translate(-4px, 2px) skew(4deg);
+    }
+    40% {
+        transform: translate(4px, -2px) skew(-4deg);
+    }
+    60% {
+        transform: translate(-2px, 1px) skew(2deg);
+    }
+}
+
+@keyframes glitchTop {
+    0%, 100% {
+        transform: translate(0);
+        visibility: hidden;
+    }
+    20% {
+        transform: translate(-6px, 2px) skew(-4deg);
+        visibility: visible;
+    }
+    40% {
+        transform: translate(6px, -1px) skew(3deg);
+        visibility: visible;
+    }
+    60% {
+        transform: translate(-3px, 0) skew(-2deg);
+        visibility: visible;
+    }
+}
+
+@keyframes glitchBotom {
+    0%, 100% {
+        transform: translate(0);
+        visibility: hidden;
+    }
+    20% {
+        transform: translate(6px, -2px) skew(4deg);
+        visibility: visible;
+    }
+    40% {
+        transform: translate(-5px, 2px) skew(-3deg);
+        visibility: visible;
+    }
+    60% {
+        transform: translate(3px, -1px) skew(2deg);
+        visibility: visible;
+    }
+}

@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+import "@fontsource-variable/oxanium";
+import "@fontsource-variable/figtree";
+import AboutSection from "@/components/landing/About/About.astro";
+import ContactSection from "@/components/landing/Contact/Contact.astro";
+import HeroSection from "@/components/landing/Hero/HeroSection.astro";
+import ProjectsSection from "@/components/landing/ProjectsSection.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return "dark";
+  };
+  const isLight = getThemePreference() === "light";
+  document.documentElement.classList[isLight ? "add" : "remove"]("light");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isLight = document.documentElement.classList.contains("light");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
+<MainLayout title="Inicio">
+  <HeroSection />
+  <ProjectsSection />
+  <AboutSection />
+  <ContactSection />
+</MainLayout>

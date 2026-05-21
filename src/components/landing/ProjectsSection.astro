@@ -1,0 +1,55 @@
+---
+import projectBliss from "@/assets/project_bliss.png";
+import projectClemps from "@/assets/project_clemps.png";
+import projectMajo from "@/assets/project_majo.png";
+import FeatureBlock from "@/components/ui/FeatureBlock/FeatureBlock.astro";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+---
+
+<section id="projects" class="w-full">
+  <SectionTitle title="Proyectos" />
+
+  <div class="space-y-12">
+    <FeatureBlock
+      caption="CLEMPS - UAEH / 2024 - 2025"
+      title="Plataforma de Consulta Serverless"
+      badges={["ASTRO", "NETLIFY", "GOOGLE APPS SCRIPT", "SERVERLESS"]}
+      stats={[
+        { value: "< 1s", label: "Tiempo de respuesta" },
+        { value: "+2,000", label: "Usuarios activos" },
+      ]}
+      image={projectClemps}
+      revealClass="reveal"
+    />
+
+    <FeatureBlock
+      caption="BlissDDM / 2025"
+      title="Librería de Componentes y Sistema de Diseño"
+      badges={["REACT", "TAILWINDCSS", "STORYBOOK", "VITEST"]}
+      stats={[
+        { value: "-60%", label: "Tiempo de integración de UI" },
+        { value: "+30", label: "Componentes reutilizables" },
+      ]}
+      image={projectBliss}
+      revealClass="reveal"
+    />
+
+    <FeatureBlock
+      caption="Majo Exterior Remodeling / 2025"
+      title="Web Corporativa"
+      badges={[
+        "ASTRO | ASTRO COLLECTIONS",
+        "REACT",
+        "GOOGLE CLOUD APIS",
+        "SSR",
+      ]}
+      stats={[
+        { value: "100%", label: "Desktop Core Web Vitals" },
+        { value: "99%", label: "Mobile Core Web Vitals" },
+      ]}
+      image={projectMajo}
+      revealClass="reveal"
+    />
+  </div>
+</section>
+

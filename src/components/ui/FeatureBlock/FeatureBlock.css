@@ -1,0 +1,74 @@
+.feature-block {
+    width: 90dvw;
+    margin: 0 auto;
+    @apply grid grid-cols-1 md:grid-cols-2 rounded-sm;
+    @apply border relative transition-all duration-300;
+    font-family: "Figtree Variable";
+    overflow: hidden;
+    &:hover {
+        @apply border-primary/30;
+        .image{
+            transform: scale(1.02);
+        }
+    }
+
+    .content-col {
+        @apply flex flex-col justify-center;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .main-section {
+        @apply flex flex-col gap-y-3;
+    }
+
+    .caption {
+        @apply text-muted-foreground tracking-wide;
+        font-size: clamp(0.75rem, 2vw, 0.875rem);
+    }
+    
+    .title {
+        @apply font-bold tracking-tight text-foreground;
+        font-size: clamp(2.25rem, 4vw, 3rem);
+        line-height: clamp(2lh, 2lh, 2.5lh);
+        text-transform: capitalize;
+    }
+
+    .badges-row {
+        @apply flex flex-wrap gap-2 py-3;
+    }
+    
+    .badge {
+        @apply inline-flex items-center justify-center rounded-full border border-border px-3 py-1 font-medium uppercase tracking-widest text-muted-foreground bg-transparent;
+        font-size: clamp(0.6rem, 1.5vw, 0.65rem);
+    }
+    
+    .stats-row {
+        @apply flex flex-wrap;
+        gap: clamp(1rem, 2vw, 2rem);
+    }
+
+    .stat-item {
+        @apply flex flex-col gap-1;
+    }
+
+    .stat-value {
+        @apply font-semibold tracking-tighter text-foreground;
+        font-size: clamp(1.875rem, 4vw, 2.25rem);
+    }
+
+    .stat-label {
+        @apply text-muted-foreground;
+        font-size: clamp(0.7rem, 1.5vw, 0.875rem);
+    }
+
+    .image-container {
+        @apply order-first md:order-none;
+        .image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            @apply max-h-[220px] md:max-h-[500px] lg:max-h-[400px];
+        }
+    }
+}
