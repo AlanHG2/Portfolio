@@ -218,9 +218,9 @@
 }
 
 @layer components {
-  @import "../components/ui/FeatureBlock/FeatureBlock.css";
-  @import "../components/landing/Hero/hero.css";
   @import "../components/layout/header.css";
+  @import "../components/landing/Hero/hero.css";
   @import "../components/landing/About/about.css";
+  @import "../components/ui/FeatureBlock/FeatureBlock.css";
   @import "../components/landing/Contact/contact.css";
 }
