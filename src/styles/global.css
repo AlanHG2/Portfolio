@@ -172,24 +172,6 @@
     will-change: opacity, transform;
   }
 
-  .reveal-left {
-    opacity: 0;
-    transform: translateX(-48px);
-    transition:
-      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-
-  .reveal-right {
-    opacity: 0;
-    transform: translateX(48px);
-    transition:
-      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-
   .reveal-scale {
     opacity: 0;
     transform: scale(0.92) translateY(24px);
@@ -201,8 +183,6 @@
 
   /* Visible state: triggered by IntersectionObserver */
   .reveal.is-visible,
-  .reveal-left.is-visible,
-  .reveal-right.is-visible,
   .reveal-scale.is-visible {
     opacity: 1;
     transform: none;
@@ -227,8 +207,6 @@
   /* Accessibility: respect prefers-reduced-motion */
   @media (prefers-reduced-motion: reduce) {
     .reveal,
-    .reveal-left,
-    .reveal-right,
     .reveal-scale,
     .reveal-stagger {
       opacity: 1;

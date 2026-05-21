@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 101;
+  z-index: 10;
   transition: all 0.3s ease;
 
   .header-container {
@@ -18,7 +18,7 @@
     margin: 0 auto;
     height: 3.75rem;
     background: rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
   }
 
   /* --- Left Section --- */
@@ -30,7 +30,7 @@
 
     .logo-container {
       position: relative;
-      z-index: 101;
+      z-index: 10;
       background-color: var(--color-primary);
       display: flex;
       justify-content: center;
@@ -84,7 +84,7 @@
         height: 100%;
         padding: 0 1.5rem;
         font-size: 1rem;
-        font-family: 'Oxanium Variable', monospace;
+        font-family: "Oxanium Variable", monospace;
         font-weight: 500;
         letter-spacing: 0.05em;
         text-transform: uppercase;
@@ -109,7 +109,7 @@
       height: 100%;
       padding: 0 1rem;
       position: relative;
-      z-index: 101;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -121,7 +121,9 @@
       svg {
         width: 1.75rem;
         height: 1.75rem;
-        transition: transform 0.1s ease, opacity 0.3s ease;
+        transition:
+          transform 0.1s ease,
+          opacity 0.3s ease;
       }
 
       .icon-close {
@@ -182,7 +184,7 @@
 .desktop-nav-list {
   flex-direction: row;
   height: 100%;
-  align-items: center; 
+  align-items: center;
 
   .nav-item {
     height: 100%;
@@ -217,8 +219,11 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease-in-out;
-  z-index: 100;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease-in-out;
+  z-index: 9;
 
   @media (min-width: 768px) {
     display: none !important;
@@ -233,13 +238,13 @@
 
       .nav-link {
         padding: 1rem;
-        
+
         &.mobile-nav-link {
           font-size: 1.8rem;
         }
       }
     }
-    
+
     .mode-toggle {
       padding: 1rem 2rem !important;
 
@@ -292,9 +297,17 @@ body:has(.mobile-menu-toggle:checked) {
     }
 
     /* Staggered animation for links when opening */
-    .nav-item:nth-child(1) .nav-link { transition-delay: 0.1s; }
-    .nav-item:nth-child(2) .nav-link { transition-delay: 0.15s; }
-    .nav-item:nth-child(3) .nav-link { transition-delay: 0.2s; }
-    .nav-item:nth-child(4) .nav-link { transition-delay: 0.25s; }
+    .nav-item:nth-child(1) .nav-link {
+      transition-delay: 0.1s;
+    }
+    .nav-item:nth-child(2) .nav-link {
+      transition-delay: 0.15s;
+    }
+    .nav-item:nth-child(3) .nav-link {
+      transition-delay: 0.2s;
+    }
+    .nav-item:nth-child(4) .nav-link {
+      transition-delay: 0.25s;
+    }
   }
 }
