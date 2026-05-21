@@ -146,11 +146,11 @@
   }
 
   section:not(#hero) {
-    padding-bottom: 8dvh;
-    padding-top: 8dvh;
+    padding-bottom: 8svh;
+    padding-top: 8svh;
   }
   footer {
-    margin-top: 8dvh;
+    margin-top: 8svh;
   }
 
   ::view-transition-new(root) {
@@ -213,6 +213,11 @@
       transform: none;
       transition: none;
       will-change: auto;
+    }
+
+    .hero-content,
+    .mobile-nav {
+      transition: none !important;
     }
   }
 }

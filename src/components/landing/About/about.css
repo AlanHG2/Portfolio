@@ -1,56 +1,56 @@
 .about-section {
-    width: 100%;
-  }
+  width: 100%;
+}
 
+.about-container {
+  width: 90dvw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3svh;
+  column-gap: 3dvw;
+}
+
+.section-title {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  font-family: var(--font-heading, sans-serif);
+  text-transform: uppercase;
+}
+
+.about-text {
+  font-size: clamp(0.9rem, 3vw, 1.25rem);
+  line-height: 1.5lh;
+  color: var(--muted-foreground);
+  padding-top: 1svh;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 2svh 0;
+  margin: 0;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @apply border border-border rounded-full;
+  padding: 0.25rem 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  font-size: clamp(0.6rem, 1.5vw, 0.65rem);
+  font-family: var(--font-sans, "Figtree Variable", sans-serif);
+}
+
+@media (min-width: 768px) {
   .about-container {
-    width: 90dvw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 3dvh;
-    column-gap: 3dvw;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
-
-  .section-title {
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    font-weight: 600;
-    font-family: var(--font-heading, sans-serif);
-    text-transform: uppercase;
-  }
-
-  .about-text {
-    font-size: clamp(0.9rem, 3vw, 1.25rem);
-    line-height: 1.5lh;
-    color: var(--muted-foreground);
-    padding-top: 1dvh;
-  }
-
-  .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 2dvh 0;
-    margin: 0;
-  }
-
-  .skill-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    @apply border border-border rounded-full;
-    padding: 0.25rem 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted-foreground);
-    font-size: clamp(0.6rem, 1.5vw, 0.65rem);
-    font-family: var(--font-sans, "Figtree Variable", sans-serif);
-  }
-
-  @media (min-width: 768px) {
-    .about-container {
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
-  }
+}

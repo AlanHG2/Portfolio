@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 3dvh;
+  gap: 3svh;
   text-transform: uppercase;
 }
 
@@ -40,11 +40,7 @@
 
 .contact-section .contact-cta {
   font-family: var(--font-oxanium, "Oxanium Variable", sans-serif);
-  font-size: clamp(
-    3.236rem,
-    8.09vw,
-    6.472rem
-  );
+  font-size: clamp(3.236rem, 8.09vw, 6.472rem);
   font-weight: 700;
   color: var(--foreground);
   display: inline-flex;
@@ -76,11 +72,7 @@
 }
 
 .contact-section .pointer-icon {
-  width: clamp(
-    2rem,
-    5vw,
-    4rem
-  );
+  width: clamp(2rem, 5vw, 4rem);
   height: clamp(2rem, 5vw, 4rem);
   transition: color 0.2s ease-in 0s;
 }
