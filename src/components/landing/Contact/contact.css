@@ -13,15 +13,19 @@
 }
 
 .contact-section .contact-heading {
-  font-family: var(--font-oxanium, 'Oxanium Variable', sans-serif);
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-family: var(--font-oxanium, "Oxanium Variable", sans-serif);
+  font-size: clamp(1.9rem, 5vw, 4rem);
   font-weight: 800;
   color: var(--foreground);
   max-width: 70dvw;
 }
 
 .contact-section .word-grandioso {
-  background: linear-gradient(to right, var(--foreground) 50%, var(--primary) 50%);
+  background: linear-gradient(
+    to right,
+    var(--foreground) 50%,
+    var(--primary) 50%
+  );
   background-size: 200% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -35,8 +39,12 @@
 }
 
 .contact-section .contact-cta {
-  font-family: var(--font-oxanium, 'Oxanium Variable', sans-serif);
-  font-size: clamp(3.236rem, 8.09vw, 6.472rem); /* Proporción áurea (1.618) aplicada respecto a contact-heading */
+  font-family: var(--font-oxanium, "Oxanium Variable", sans-serif);
+  font-size: clamp(
+    3.236rem,
+    8.09vw,
+    6.472rem
+  );
   font-weight: 700;
   color: var(--foreground);
   display: inline-flex;
@@ -50,7 +58,11 @@
 }
 
 .contact-section .word-hablemos {
-  background: linear-gradient(to right, var(--primary) 50%, var(--foreground) 50%);
+  background: linear-gradient(
+    to right,
+    var(--primary) 50%,
+    var(--foreground) 50%
+  );
   background-size: 200% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -64,13 +76,15 @@
 }
 
 .contact-section .pointer-icon {
-  width: clamp(2rem, 5vw, 4rem); /* Proporción áurea (1/1.618) aplicada respecto a contact-cta */
+  width: clamp(
+    2rem,
+    5vw,
+    4rem
+  );
   height: clamp(2rem, 5vw, 4rem);
-  /* Al quitar el ratón, pierde el color rápido (sin delay) */
   transition: color 0.2s ease-in 0s;
 }
 
 .contact-section .contact-cta:hover .pointer-icon {
-  /* Al hacer hover, espera 0.4s a que el barrido cruce "Hablemos" y luego se colorea */
   transition: color 0.2s ease-out 0.4s;
 }

@@ -1,4 +1,6 @@
 ---
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+
 const skills = [
 	"Desarrollo Web",
 	"Diseño de Sistemas",
@@ -27,8 +29,6 @@ const technologies = [
 	"Docker",
 	"Google Cloud",
 ];
-
-import SectionTitle from "@/components/ui/SectionTitle.astro";
 ---
 
 <section id="about" class="about-section">
@@ -36,11 +36,14 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
   <div class="about-container">
     <div class="about-content reveal-left">
       <p class="about-text">
-        Desarrollador de software orgullosamente mexicano. Licenciado en
-        Ciencias Computacionales por parte del Instituto de Ciencias Básicas e
-        Ingeniería de la Universidad Autónoma del Estado de Hidalgo.
-        Especializado en crear experiencias digitales rápidas, accesibles y
-        estéticamente excepcionales.
+        Desarrollador de software <span class="font-bold"
+          >orgullosamente mexicano</span
+        >. Licenciado en Ciencias Computacionales por parte del Instituto de
+        Ciencias Básicas e Ingeniería de la Universidad Autónoma del Estado de
+        Hidalgo. Especializado en crear experiencias digitales rápidas,
+        accesibles y <span class="text-primary"
+          >estéticamente excepcionales</span
+        >.
       </p>
     </div>
     <div class="about-skills reveal-right">
