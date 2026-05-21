@@ -16,7 +16,6 @@
       ]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"]
+    "jsxImportSource": "react"
   }
 }
