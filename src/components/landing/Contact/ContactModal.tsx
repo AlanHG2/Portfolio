@@ -23,14 +23,16 @@ export function ContactModal() {
 
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
-			<DialogTrigger>
-				<button
-					type="button"
-					className="contact-cta bg-transparent border-none p-0 cursor-pointer text-left focus:outline-none"
-				>
-					<span className="word-hablemos">HABLEMOS</span>
-					<ArrowUpRight className="pointer-icon" />
-				</button>
+			<DialogTrigger
+				render={
+					<button
+						type="button"
+						className="contact-cta bg-transparent border-none p-0 cursor-pointer text-left focus:outline-none"
+					/>
+				}
+			>
+				<span className="word-hablemos">HABLEMOS</span>
+				<ArrowUpRight className="pointer-icon" />
 			</DialogTrigger>
 			<DialogContent className="w-[95vw] sm:max-w-lg max-h-[90dvh] overflow-y-auto">
 				<DialogHeader>

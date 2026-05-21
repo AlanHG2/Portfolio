@@ -1,4 +1,7 @@
+import { env as _env } from "cloudflare:workers";
 import type { APIRoute } from "astro";
+
+const env = _env as unknown as Env;
 
 interface ContactRequestBody {
 	nombre: string;
@@ -17,7 +20,7 @@ interface ResendErrorResponse {
 	message: string;
 }
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
 	try {
 		// 1. Validar el cuerpo de la petición
 		let body: ContactRequestBody;
@@ -42,12 +45,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
 				{ status: 400, headers: { "Content-Type": "application/json" } },
 			);
 		}
-
-		// Acceder a las variables de entorno via runtime de Cloudflare
-		// En @astrojs/cloudflare las env vars se exponen en locals.runtime.env
-		const env =
-			(locals as { runtime?: { env?: Record<string, string> } }).runtime?.env ??
-			{};
 
 		// 2. Validar el token contra Cloudflare Turnstile
 		const TURNSTILE_SECRET_KEY =
